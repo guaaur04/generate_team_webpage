@@ -1,16 +1,18 @@
 const Engineer = require("../lib/Engineer");
 
-describe("Engineer class", () => {
-    it("sets first argument as name property", () => {
-        expect(new Engineer("Julieta").name).toBe("Julieta");
-    });
-
-    it("sets second argument as email property", () => {
-        expect(new Engineer("Julieta").email).toBe("julieta.engineer@example.com");
-    });
-
-    it("sets third argument as GitHub username", () => {
-        expect(new Engineer("Julieta").github).toBe("julietx");
-    });
-
-}); 
+test("Can set GitHUb account via constructor", () => {
+    const testValue = "GitHubUser";
+    const e = new Engineer("Foo", 1, "test@test.com", testValue);
+    expect(e.github).toBe(testValue);
+  });
+  test('getRole() should return "Engineer"', () => {
+    const testValue = "Engineer";
+    const e = new Engineer("Foo", 1, "test@test.com", "GitHubUser");
+    expect(e.getRole()).toBe(testValue);
+  });
+  
+  test("Can get GitHub username via getGithub()", () => {
+    const testValue = "GitHubUser";
+    const e = new Engineer("Foo", 1, "test@test.com", testValue);
+    expect(e.getGithub()).toBe(testValue);
+  });
