@@ -16,5 +16,6 @@
         "activityBarBadge.foreground": "#15202b"
     },
     "peacock.color": "#ff3d00",
-    "zenMode.fullScreen": false
+    "zenMode.fullScreen": false,
+    "liveServer.settings.port": 5501
 }
