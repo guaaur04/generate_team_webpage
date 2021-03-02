@@ -15,7 +15,10 @@ const render = require("./lib/htmlRenderer");
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 function generateTeam() {
-    inquirer.prompt(
+
+
+    
+    inquirer.prompt([
         {
             type: "list",
             message: "What's your role on this team?",
@@ -46,9 +49,85 @@ function generateTeam() {
             default: "1,2,3,4,5,6",
         },
 
-        }).then((data) =>{
+    ])
+        
+        .then((data) => {
+            if((data.role === "Manager") {
+                inquirer.prompt ([
+                    {
+                        type: "input",
+                        message: "Enter office number:",
+                        name: "officeNumber",
+                        default: "#",
+                    },
+                ])
+                .then((manage) => {
+                    const manager = new Manager(
+                      data.name,
+                      data.id,
+                      data.email,
+                      manage.officeNumber
+                    );
 
-    ({ role }) {
+                if (
+                        finalArray.find((element) => element.role === "Manager")
+                      ) {
+                        console.log("Hello!");
+                        generateTeam();
+                      } else {
+                        finalArray.push(manager);
+                        generateTeam();
+                      }
+                    });  
+            } else if (data.role ==="Engineer") {
+                inquirer.promp ([
+                    {
+                        type: "input",
+                        message: "Enter Github username:",
+                        name: "github",
+                        default: "Github Username",  
+                    },
+                ])
+                .then((engine) => {
+                    const engineer = new Engineer(
+                      data.name,
+                      data.id,
+                      data.email,
+                      engine.github
+                    );
+                    finalArray.push(engineer);
+                    generateTeam();
+                  });
+            }  else if (data.role ==="Intern") {
+                inquirer.prompt([
+                    {
+                        type: "input",
+                        message: "Enter school:",
+                        name: "school",
+                        default: "The Evergreen State College",    
+                    },
+                ])
+                .then((student) => {
+                    const intern = new Intern(
+                      data.name,
+                      data.id,
+                      data.email,
+                      student.school
+                    );
+                    finalArray.push(intern);
+                    generateTeam();
+                  });
+            }  
+
+        });
+    } else {
+        produceHTML(render(finalArray));
+    }
+});
+}
+
+ge
+
            
 
 // After the user has input all employees desired, call the `render` function (required
