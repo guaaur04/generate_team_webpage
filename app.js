@@ -91,7 +91,7 @@ function generateTeam() {
                                     }
                                 });
                         } else if (data.role === "Engineer") {
-                            inquirer.promp([
+                            inquirer.prompt([
                                 {
                                     type: "input",
                                     message: "Enter Github username:",
