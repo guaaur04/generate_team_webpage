@@ -16,6 +16,7 @@ Github: https://github.com/guaaur04/generate_team_webpage
 
 Deployed application: https://thawing-bayou-67724.herokuapp.com/
 
+# Built with jest and inquirer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
