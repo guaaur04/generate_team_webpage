@@ -1,16 +1,19 @@
 const Manager = require("../lib/Manager");
 
-describe("Manager class", () => {
-    it("sets first argument as name property", () => {
-        expect(new Manager("Tayhana").name).toBe("Tayhana");
-    });
-
-    it("sets second argument as email property", () => {
-        expect(new Manager("Tayhana").email).toBe("tayhana.manager@example.com");
-    });
-
-    it("sets third argument as office number", () => {
-        expect(new Manager("Tayhana").officeNumber).toBe("4");
-    });
-
-}); 
+test("Can set office number via constructor argument", () => {
+    const testValue = 100;
+    const e = new Manager("Foo", 1, "test@test.com", testValue);
+    expect(e.officeNumber).toBe(testValue);
+  });
+  
+  test('getRole() should return "Manager"', () => {
+    const testValue = "Manager";
+    const e = new Manager("Foo", 1, "test@test.com", 100);
+    expect(e.getRole()).toBe(testValue);
+  });
+  
+  test("Can get office number via getOffice()", () => {
+    const testValue = 100;
+    const e = new Manager("Foo", 1, "test@test.com", testValue);
+    expect(e.getOfficeNumber()).toBe(testValue);
+  });

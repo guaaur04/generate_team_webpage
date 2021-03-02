@@ -1,16 +1,19 @@
 const Intern = require("../lib/Intern");
 
-describe("Intern class", () => {
-    it("sets first argument as name property", () => {
-        expect(new Intern("Joao").name).toBe("Joao");
-    });
-
-    it("sets second argument as email property", () => {
-        expect(new Engineer("Joao").email).toBe("joao.intern@example.com");
-    });
-
-    it("sets third argument as school property", () => {
-        expect(new Engineer("Joao").school).toBe("Universidad de Sao Paulo");
-    });
-
-}); 
+test("Can set school via constructor", () => {
+    const testValue = "The Evergreen State College";
+    const e = new Intern("Foo", 1, "test@test.com", testValue);
+    expect(e.school).toBe(testValue);
+  });
+  
+  test('getRole() should return "Intern"', () => {
+    const testValue = "Intern";
+    const e = new Intern("Foo", 1, "test@test.com", "UCLA");
+    expect(e.getRole()).toBe(testValue);
+  });
+  
+  test("Can get school via getSchool()", () => {
+    const testValue = "The Evergreen State College";
+    const e = new Intern("Foo", 1, "test@test.com", testValue);
+    expect(e.getSchool()).toBe(testValue);
+  });
